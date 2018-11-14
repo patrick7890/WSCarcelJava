@@ -7,11 +7,11 @@
     <service name="WSPreso">
       <implementation-class>service.WSPreso</implementation-class>
     </service>
-    <service name="WSVisita">
-      <implementation-class>service.WSVisita</implementation-class>
-    </service>
     <service name="WSHorario">
       <implementation-class>service.WSHorario</implementation-class>
+    </service>
+    <service name="WSVisita">
+      <implementation-class>service.WSVisita</implementation-class>
     </service>
   </services>
   <clients/>

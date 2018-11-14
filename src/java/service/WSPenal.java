@@ -24,43 +24,43 @@ public class WSPenal {
     private PenalFacade ejbRef;// Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Web Service Operation")
 
-    @WebMethod(operationName = "create")
-    public boolean create(@WebParam(name = "entity") Penal entity) {
+    @WebMethod(operationName = "createPenal")
+    public boolean createPenal(@WebParam(name = "entity") Penal entity) {
         return ejbRef.create(entity);
     }
 
-    @WebMethod(operationName = "edit")
-    public boolean edit(@WebParam(name = "entity") Penal entity) {
+    @WebMethod(operationName = "editPenal")
+    public boolean editPenal(@WebParam(name = "entity") Penal entity) {
         return ejbRef.edit(entity);
     }
 
-    @WebMethod(operationName = "remove")
-    public boolean remove(@WebParam(name = "entity") Penal entity) {
+    @WebMethod(operationName = "removePenal")
+    public boolean removePenal(@WebParam(name = "entity") Penal entity) {
         return ejbRef.remove(entity);
     }
 
-    @WebMethod(operationName = "find")
-    public Penal find(@WebParam(name = "id") Object id) {
+    @WebMethod(operationName = "findPenal")
+    public Penal findPenal(@WebParam(name = "id") Object id) {
         return ejbRef.find(id);
     }
 
-    @WebMethod(operationName = "findAll")
-    public List<Penal> findAll() {
+    @WebMethod(operationName = "findAllPenal")
+    public List<Penal> findAllPenal() {
         return ejbRef.findAll();
     }
 
-    @WebMethod(operationName = "findRange")
-    public List<Penal> findRange(@WebParam(name = "range") int[] range) {
+    @WebMethod(operationName = "findRangePenal")
+    public List<Penal> findRangePenal(@WebParam(name = "range") int[] range) {
         return ejbRef.findRange(range);
     }
 
-    @WebMethod(operationName = "count")
-    public int count() {
+    @WebMethod(operationName = "countPenal")
+    public int countPenal() {
         return ejbRef.count();
     }
 
-    @WebMethod(operationName = "buscar")
-    public Penal buscar(@WebParam(name = "id") int id) {
+    @WebMethod(operationName = "buscarPenal")
+    public Penal buscarPenal(@WebParam(name = "id") int id) {
         return ejbRef.buscar(id);
     }
     

@@ -6,6 +6,7 @@
 package dto.facede;
 
 import dto.entidad.Preso;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -36,4 +37,9 @@ public class PresoFacade extends AbstractFacade<Preso> {
         return (Preso) q.getSingleResult();
     }
     
+    
+    public List<Preso>listartodo(){
+        Query q = em.createNamedQuery("Preso.findAll");
+        return q.getResultList();
+    }
 }

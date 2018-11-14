@@ -82,6 +82,13 @@ public class Visita implements Serializable {
         this.tiempoVisita = tiempoVisita;
     }
 
+    public Visita(String id, String observacion, String nombre, short edad) {
+        this.idVisita = id;
+        this.observacion = observacion;
+        this.nombreV = nombre;
+        this.edad = edad;
+    }
+
     public String getIdVisita() {
         return idVisita;
     }
@@ -162,5 +169,5 @@ public class Visita implements Serializable {
     public String toString() {
         return "dto.entidad.Visita[ idVisita=" + idVisita + " ]";
     }
-    
+
 }

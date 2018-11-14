@@ -5,7 +5,11 @@
  */
 package service;
 
+import dto.entidad.Horario;
+import dto.entidad.Preso;
 import dto.entidad.Visita;
+import dto.facede.HorarioFacade;
+import dto.facede.PresoFacade;
 import dto.facede.VisitaFacade;
 import java.util.List;
 import javax.ejb.EJB;
@@ -20,6 +24,10 @@ import javax.jws.WebService;
 @WebService(serviceName = "WSVisita")
 public class WSVisita {
 
+    @EJB
+    private HorarioFacade horarioFacade;
+    @EJB
+    private PresoFacade presoFacade;
     @EJB
     private VisitaFacade ejbRef;// Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Web Service Operation")
@@ -63,5 +71,21 @@ public class WSVisita {
     public Visita buscar(@WebParam(name = "id") int id) {
         return ejbRef.buscar(id);
     }
-    
+
+    @WebMethod(operationName = "agregarVisita")
+    public boolean agregarVisita(@WebParam(name = "id") String id, @WebParam(name = "observacion") String observacion, @WebParam(name = "idPreso") int idPreso, @WebParam(name = "nombre") String nombre, @WebParam(name = "edad") short edad, @WebParam(name = "idHorario") int idHorario) {
+        Visita v = new Visita(id, observacion, nombre, edad);
+        short t = 10;
+        Horario h = horarioFacade.buscar(idHorario);
+        t += h.getMinutos();
+        v.setPresoIdPreso(presoFacade.buscar(idPreso));
+        if (edad >= 18 && edad <= 30) {
+            t += 15;
+        } else if (edad > 30) {
+            t += 20;
+        }
+        v.setTiempoVisita(t);
+        v.setHorarioIdHorario(h);
+        return ejbRef.create(v);
+    }
 }

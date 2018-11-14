@@ -24,43 +24,43 @@ public class WSHorario {
     private HorarioFacade ejbRef;// Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Web Service Operation")
 
-    @WebMethod(operationName = "create")
-    public boolean create(@WebParam(name = "entity") Horario entity) {
+    @WebMethod(operationName = "createHorario")
+    public boolean createHorario(@WebParam(name = "entity") Horario entity) {
         return ejbRef.create(entity);
     }
 
-    @WebMethod(operationName = "edit")
-    public boolean edit(@WebParam(name = "entity") Horario entity) {
+    @WebMethod(operationName = "editHorario")
+    public boolean editHorario(@WebParam(name = "entity") Horario entity) {
         return ejbRef.edit(entity);
     }
 
-    @WebMethod(operationName = "remove")
-    public boolean remove(@WebParam(name = "entity") Horario entity) {
+    @WebMethod(operationName = "removeHorario")
+    public boolean removeHorario(@WebParam(name = "entity") Horario entity) {
         return ejbRef.remove(entity);
     }
 
-    @WebMethod(operationName = "find")
-    public Horario find(@WebParam(name = "id") Object id) {
+    @WebMethod(operationName = "findHorario")
+    public Horario findHorario(@WebParam(name = "id") Object id) {
         return ejbRef.find(id);
     }
 
-    @WebMethod(operationName = "findAll")
-    public List<Horario> findAll() {
+    @WebMethod(operationName = "findAllHorario")
+    public List<Horario> findAllHorario() {
         return ejbRef.findAll();
     }
 
-    @WebMethod(operationName = "findRange")
-    public List<Horario> findRange(@WebParam(name = "range") int[] range) {
+    @WebMethod(operationName = "findRangeHorario")
+    public List<Horario> findRangeHorario(@WebParam(name = "range") int[] range) {
         return ejbRef.findRange(range);
     }
 
-    @WebMethod(operationName = "count")
-    public int count() {
+    @WebMethod(operationName = "countHorario")
+    public int countHorario() {
         return ejbRef.count();
     }
 
-    @WebMethod(operationName = "buscar")
-    public Horario buscar(@WebParam(name = "id") int id) {
+    @WebMethod(operationName = "buscarHorario")
+    public Horario buscarHorario(@WebParam(name = "id") int id) {
         return ejbRef.buscar(id);
     }
     
