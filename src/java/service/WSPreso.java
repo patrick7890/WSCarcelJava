@@ -81,4 +81,14 @@ public class WSPreso {
     public List<Preso> listarTodo() {
         return ejbRef.listartodo();
     }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "actualizarpreso")
+    public boolean actualizarpreso(@WebParam(name = "id") short id, @WebParam(name = "nombre") String nombre, @WebParam(name = "sexo") char sexo, @WebParam(name = "visita") char visita, @WebParam(name = "penal") int penal) {
+        Preso p = new Preso(id, nombre, sexo, visita);
+         p.setPenalIdPenal(penalfacade.buscar(penal));
+        return ejbRef.edit(p);
+    }
 }

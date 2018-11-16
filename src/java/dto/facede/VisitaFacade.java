@@ -30,7 +30,7 @@ public class VisitaFacade extends AbstractFacade<Visita> {
         super(Visita.class);
     }
 
-    public Visita buscar(int id) {
+    public Visita buscar(String id) {
         Query q = em.createNamedQuery("Visita.findByIdVisita");
         q.setParameter("idVisita", id);
         return (Visita) q.getSingleResult();

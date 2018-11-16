@@ -11,6 +11,9 @@ import dto.entidad.Visita;
 import dto.facede.HorarioFacade;
 import dto.facede.PresoFacade;
 import dto.facede.VisitaFacade;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.jws.WebMethod;
@@ -68,7 +71,7 @@ public class WSVisita {
     }
 
     @WebMethod(operationName = "buscar")
-    public Visita buscar(@WebParam(name = "id") int id) {
+    public Visita buscar(@WebParam(name = "id") String id) {
         return ejbRef.buscar(id);
     }
 
@@ -87,5 +90,15 @@ public class WSVisita {
         v.setTiempoVisita(t);
         v.setHorarioIdHorario(h);
         return ejbRef.create(v);
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "idvisita")
+    public String idvisita() {
+        Date d=new Date();
+        DateFormat fmt=new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
+        return fmt.format(d);
     }
 }
